@@ -37,16 +37,16 @@ public class ProducerKafkaConfig {
     }
 
     //Habilita para poder criar os topicos via aplicação
-    //@Bean
-    //public KafkaAdmin kafkaAdmin(){
-    //    var configs = new HashMap<String,Object>();
-    //    configs.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG,kafkaProperties.getBootstrapServers());
-    //    return new KafkaAdmin(configs);
-    //}
-//
-    //@Bean
-    //public NewTopic newTopic1(){
-    //    return new NewTopic("topic-1",10, Short.parseShort("1"));
-    //}
+    @Bean
+    public KafkaAdmin kafkaAdmin(){
+        var configs = new HashMap<String,Object>();
+        configs.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG,kafkaProperties.getBootstrapServers());
+        return new KafkaAdmin(configs);
+    }
+
+    @Bean
+    public NewTopic newTopic1(){
+        return new NewTopic("topic-1",10, Short.parseShort("1"));
+    }
 
 }
